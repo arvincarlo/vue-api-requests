@@ -4,24 +4,23 @@
             return {
                 formData: {
                     name: "",
-                    message: ""
+                    msg: ""
                 }
             }
         },
         methods: {
             async submitForm() {
-                const response = await fetch('http://119.9.108.155/apitest/index.php?c=create', {
+                const response = await fetch('/api/apitest/index.php?c=create', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',
-                    'apikey': '2025frontdeveloper'
+                    'apikey': '2025frontdeveloper',
                     },
                     body: JSON.stringify(this.formData)
                 });
-                
-                const result = await response.json();
 
-                console.log(result);
+                const {result, msg} = await response.json();
+                console.log(result, msg);
             }
         }
     }
@@ -37,7 +36,7 @@
         </div>
         <div>
             <label for="message">Message: </label>
-            <textarea type="text" v-model="formData.message" required/>
+            <textarea type="text" v-model="formData.msg" required/>
         </div>
         <button type="submit">Submit</button>
     </form>
