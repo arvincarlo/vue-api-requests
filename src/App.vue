@@ -4,7 +4,7 @@ import Dashboard from './components/Dashboard.vue';
 </script>
 
 <template>
-  <Dashboard/>
+  <router-view></router-view>
 </template>
 
 <style scoped>
