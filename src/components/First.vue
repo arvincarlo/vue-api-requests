@@ -20,7 +20,10 @@
                 });
 
                 const {result, msg} = await response.json();
-                console.log(result, msg);
+
+                if (result) alert("Message submitted successfuly.")
+
+                console.log(result);
             }
         }
     }

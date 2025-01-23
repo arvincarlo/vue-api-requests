@@ -10,7 +10,7 @@ export default {
     return {
       items: [],
       currentPage: 1,
-      totalPages: 1,
+      totalPages: 10,
       limit: 10
     };
   },
@@ -32,7 +32,7 @@ export default {
         });
         this.items = response.data.data;
         console.log(response.data);
-        this.totalPages =12
+        this.totalPages = this.items.length;
         this.currentPage = page;
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -46,12 +46,16 @@ export default {
     <div>
         <table border="1" cellpadding="10">
             <tr>
-                <th><underline>Name</underline></th>
-                <th><underline>Message</underline></th>
+                <th><u>Id</u></th>
+                <th><u>Name</u></th>
+                <th><u>Message</u></th>
+                <th><u>Date Submitted</u></th>
             </tr>
             <tr v-for="item in items" :key="item.id">
+                <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
-                <td>{{ item.name }}</td>
+                <td>{{ item.msg }}</td>
+                <td>{{ item.created }}</td>
             </tr>
         </table>
       <pagination
